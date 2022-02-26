@@ -1,0 +1,50 @@
+.thumbnail-slider {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+
+  &-container {
+    width: 100%;
+    float: left;
+    transition: margin 1s ease-in-out;
+
+    .item {
+      height: 250px;
+      background-color: grey;
+      line-height: 250px;
+      text-align: center;
+      font-size: 50px;
+      color: #ffffff;
+      float: left;
+    }
+  }
+
+  .controls {
+    width: 100%;
+    float: left;
+    padding: 15px;
+
+    > ul {
+      display: block;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      > li {
+        height: 35px;
+        width: 35px;
+        border: 1px solid #c3c3c3;
+        margin: 4px;
+        display: inline-block;
+        line-height: 33px;
+        cursor: pointer;
+      }
+
+      > li.active {
+        background-color: green;
+        color: #ffffff;
+      }
+    }
+  }
+}

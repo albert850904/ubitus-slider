@@ -1,0 +1,147 @@
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  // for componentlize
+  width: 100%;
+  height: 100%;
+
+  > input {
+    display: none;
+  }
+
+  &-slides {
+    display: flex;
+    max-width: 100%;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    transition: all 0.3s;
+
+    &-card {
+      width: 350px;
+      background-color: #1e1e26;
+      border-radius: 10px;
+      box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      margin: 2px 2rem;
+      transition: all 0.5s;
+
+      &-title {
+        display: flex;
+        flex-direction: column;
+        color: #32323e;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-family: bebas kai;
+        font-size: 25px;
+        text-align: center;
+
+        &-img {
+          margin-top: 20px;
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+
+      &-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+
+        &-desc {
+          font-family: calibri;
+          font-weight: bold;
+          color: #6a6a74;
+          text-align: center;
+          margin: 20px 0 40px 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box !important;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          white-space: normal;
+        }
+      }
+    }
+  }
+}
+
+#radio1:checked ~ .slider-container-slides {
+  left: calc(100% / 5 * 4);
+}
+
+#radio1:checked ~ .slider-container-slides #card1 {
+  transform: scale(1.2, 1.2);
+}
+
+#radio2:checked ~ .slider-container-slides {
+  left: calc(100% / 5 * 2);
+}
+#radio2:checked ~ .slider-container-slides #card2 {
+  transform: scale(1.2, 1.2);
+}
+
+#radio3:checked ~ .slider-container-slides {
+  left: 0;
+}
+
+#radio3:checked ~ .slider-container-slides #card3 {
+  transform: scale(1.2, 1.2);
+}
+
+#radio4:checked ~ .slider-container-slides {
+  left: calc((-100% / 5 * 2));
+}
+
+#radio4:checked ~ .slider-container-slides #card4 {
+  transform: scale(1.2, 1.2);
+}
+
+#radio5:checked ~ .slider-container-slides {
+  left: calc((-100% / 5 * 4));
+}
+
+#radio5:checked ~ .slider-container-slides #card5 {
+  transform: scale(1.2, 1.2);
+}
+
+// manual navigation
+.manual-navigation {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+
+  &-btn {
+    border: 2px solid gray;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      background-color: gray;
+    }
+  }
+}
+
+// 為sibling, 在他隔壁就是了
+// #slider-span1:target ~ .slider-container-image-slider-div #img1,
+// #slider-span1:target ~ .slider-container-image-slider-div #button-1 {
+//   width: 380px;
+//   height: 585px;
+//   background-color: transparent;
+//   filter: saturate(100%);
+// }
